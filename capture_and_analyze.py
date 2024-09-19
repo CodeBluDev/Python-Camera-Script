@@ -52,7 +52,7 @@ def brighten_image(image_path):
     try:
         img = Image.open(image_path)
         enhancer = ImageEnhance.Brightness(img)
-        brightened_img = enhancer.enhance(1.5)  # Increase brightness
+        brightened_img = enhancer.enhance(3.0)  # Increase brightness significantly
         brightened_img.save(image_path)  # Overwrite the original image
         print(f"Brightened image saved as {image_path}")
     except Exception as e:
@@ -60,7 +60,7 @@ def brighten_image(image_path):
 
 def extract_text_from_image(image_path):
     try:
-        grayscale_image_path = convert_to_grayscale(image_path)  # Convert the original to grayscale for text extraction
+        grayscale_image_path = convert_to_grayscale(image_path)  # Convert to grayscale for text extraction
         img = Image.open(grayscale_image_path)
         text = pytesseract.image_to_string(img, config='--psm 6')
         print(f"Extracted Text:\n{text}")
