@@ -1,9 +1,12 @@
-pip uninstall opencv-python
-pip uninstall requests
-pip uninstall pytesseract
-pip uninstall Pillow
-pip uninstall sendgrid
-
+import cv2
+import datetime
+import requests
+import os
+import pytesseract
+from PIL import Image, ImageEnhance
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail, Attachment
+import base64
 
 # Set your OpenAI API key
 api_key = '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'
@@ -12,6 +15,9 @@ api_key = 'sk-proj-tiyzcg8ng-pCQaYYTogV4zILdT6r6f9QtdLFTEc7K3l8EyYtivg_QyZNeeeWc
 email_sender = 'mendel@codebludev.com'  # Your email
 email_recipient = 'rosenblummm@gmail.com'  # Recipient's email
 sendgrid_api_key = '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'  # Your SendGrid API key
+
+# Set the threshold for intent rating
+intent_threshold = 5  # Change this value as needed
 
 def capture_image():
     camera = cv2.VideoCapture(0, cv2.CAP_AVFOUNDATION)  # Use AVFoundation flag for macOS
@@ -37,7 +43,7 @@ def capture_image():
 def convert_to_grayscale(image_path):
     try:
         img = Image.open(image_path)
-        img = img.convert('L')
+        img = img.convert('L')  # Convert to grayscale
         img.save(image_path)  # Overwrite the original image
         print(f"Image converted to grayscale and saved as {image_path}")
         return image_path

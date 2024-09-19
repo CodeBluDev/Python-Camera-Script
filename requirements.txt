@@ -1,0 +1,13 @@
+certifi==2024.8.30
+charset-normalizer==3.3.2
+idna==3.10
+numpy==2.1.1
+opencv-python==4.10.0.84
+packaging==24.1
+pillow==10.4.0
+pytesseract==0.3.13
+python-http-client==3.3.7
+requests==2.32.3
+sendgrid==6.11.0
+starkbank-ecdsa==2.2.0
+urllib3==2.2.3
