@@ -16,9 +16,6 @@ email_sender = 'mendel@codebludev.com'  # Your email
 email_recipient = 'rosenblummm@gmail.com'  # Recipient's email
 sendgrid_api_key = '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'  # Your SendGrid API key
 
-# Set the threshold for intent rating
-intent_threshold = 5  # Change this value as needed
-
 def capture_image():
     camera = cv2.VideoCapture(0, cv2.CAP_AVFOUNDATION)  # Use AVFoundation flag for macOS
     if not camera.isOpened():
@@ -43,10 +40,10 @@ def capture_image():
 def convert_to_grayscale(image_path):
     try:
         img = Image.open(image_path)
-        img = img.convert('L')  # Convert to grayscale
-        img.save(image_path)  # Overwrite the original image
-        print(f"Image converted to grayscale and saved as {image_path}")
-        return image_path
+        grayscale_path = image_path.replace('.png', '_grayscale.png')
+        img.convert('L').save(grayscale_path)  # Save as grayscale without overwriting the original
+        print(f"Grayscale image saved as {grayscale_path}")
+        return grayscale_path
     except Exception as e:
         print(f"Failed to convert image to grayscale: {e}")
         return image_path
@@ -63,7 +60,7 @@ def brighten_image(image_path):
 
 def extract_text_from_image(image_path):
     try:
-        grayscale_image_path = convert_to_grayscale(image_path)
+        grayscale_image_path = convert_to_grayscale(image_path)  # Convert the original to grayscale for text extraction
         img = Image.open(grayscale_image_path)
         text = pytesseract.image_to_string(img, config='--psm 6')
         print(f"Extracted Text:\n{text}")
@@ -80,6 +77,9 @@ def send_email(image_path):
             subject='New Realtor Inquiry',
             plain_text_content='The author is looking for a realtor. Here is the image.'
         )
+
+        # Brighten the original color image
+        brighten_image(image_path)  # Brighten the original image before sending
 
         # Attach the image
         with open(image_path, 'rb') as attachment:
@@ -125,7 +125,7 @@ def analyze_text_with_openai(extracted_text):
         print("Analysis Result:", action)
 
         if action.lower() == "send":
-            brighten_image(image_path)  # Brighten the image
+            brighten_image(image_path)  # Brighten the original image
             send_email(image_path)  # Send the email
         elif action.lower() == "delete":
             os.remove(image_path)
