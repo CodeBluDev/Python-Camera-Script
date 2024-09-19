@@ -14,7 +14,7 @@ api_key = 'sk-proj-tiyzcg8ng-pCQaYYTogV4zILdT6r6f9QtdLFTEc7K3l8EyYtivg_QyZNeeeWc
 
 # Email configuration
 email_sender = 'mendel@codebludev.com'  # Your email
-email_recipient = ['rosenblummm@gmail.com', 'mendel@codebludev.com']  # List of recipient emails
+email_recipient = ['danr@rocketscienceweb.com', 'mendel@codebludev.com']  # List of recipient emails
 sendgrid_api_key = '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'  # Your SendGrid API key
 
 def capture_image():
@@ -110,7 +110,7 @@ def analyze_text_with_openai(extracted_text, image_path):
     }
 
     question = (
-        "For the following post on Facebook, if the author is looking for a realtor, respond with 'send'; if not, respond with 'delete'. Here is the post:\n\n"
+        "For the following post on Facebook, evaluate whether the author is looking for a realtor. If the post indicates a strong interest in finding a realtor, respond with 'send'; if the interest is moderate or low (5 or below), respond with 'delete'. Here is the post:"
     )
 
     data = {
