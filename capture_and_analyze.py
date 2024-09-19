@@ -52,7 +52,7 @@ def brighten_image(image_path):
     try:
         img = Image.open(image_path)
         enhancer = ImageEnhance.Brightness(img)
-        brightened_img = enhancer.enhance(3.0)  # Increase brightness significantly
+        brightened_img = enhancer.enhance(2.5)  # Increase brightness significantly
         return brightened_img  # Return the brightened image instead of saving it
     except Exception as e:
         print(f"Failed to brighten image: {e}")
