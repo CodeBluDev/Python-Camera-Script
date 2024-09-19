@@ -53,10 +53,10 @@ def brighten_image(image_path):
         img = Image.open(image_path)
         enhancer = ImageEnhance.Brightness(img)
         brightened_img = enhancer.enhance(3.0)  # Increase brightness significantly
-        brightened_img.save(image_path)  # Overwrite the original image
-        print(f"Brightened image saved as {image_path}")
+        return brightened_img  # Return the brightened image instead of saving it
     except Exception as e:
         print(f"Failed to brighten image: {e}")
+        return None
 
 def extract_text_from_image(image_path):
     try:
@@ -69,7 +69,7 @@ def extract_text_from_image(image_path):
         print(f"Failed to extract text from image: {e}")
         return None
 
-def send_email(image_path):
+def send_email(image_path, brightened_img):
     try:
         message = Mail(
             from_email=email_sender,
@@ -78,16 +78,17 @@ def send_email(image_path):
             plain_text_content='The author is looking for a realtor. Here is the image.'
         )
 
-        # Brighten the original color image
-        brighten_image(image_path)  # Brighten the original image before sending
+        # Save the brightened image temporarily before sending
+        brightened_image_path = image_path.replace('.png', '_brightened.png')
+        brightened_img.save(brightened_image_path)
 
-        # Attach the image
-        with open(image_path, 'rb') as attachment:
+        # Attach the brightened image
+        with open(brightened_image_path, 'rb') as attachment:
             encoded_file = base64.b64encode(attachment.read()).decode()  # Encode the file
             attached_file = Attachment(
                 file_content=encoded_file,
                 file_type='image/png',
-                file_name=os.path.basename(image_path),
+                file_name=os.path.basename(brightened_image_path),
                 disposition='attachment'
             )
             message.attachment = attached_file  # Add the attachment to the message
@@ -95,10 +96,13 @@ def send_email(image_path):
         sg = SendGridAPIClient(sendgrid_api_key)
         response = sg.send(message)
         print("Email sent successfully.")
+        
+        # Clean up the brightened image after sending
+        os.remove(brightened_image_path)
     except Exception as e:
         print(f"Failed to send email: {e}")
 
-def analyze_text_with_openai(extracted_text):
+def analyze_text_with_openai(extracted_text, image_path):
     url = "https://api.openai.com/v1/chat/completions"
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -125,10 +129,11 @@ def analyze_text_with_openai(extracted_text):
         print("Analysis Result:", action)
 
         if action.lower() == "send":
-            brighten_image(image_path)  # Brighten the original image
-            send_email(image_path)  # Send the email
+            brightened_img = brighten_image(image_path)  # Brighten the original image
+            if brightened_img:
+                send_email(image_path, brightened_img)  # Send the email with the brightened image
         elif action.lower() == "delete":
-            os.remove(image_path)
+            os.remove(image_path)  # Delete the image if not needed
             print(f"Image {image_path} deleted as per instruction.")
     except requests.exceptions.RequestException as e:
         print(f"An error occurred during text analysis: {e}")
@@ -138,4 +143,4 @@ if __name__ == "__main__":
     if image_path:
         extracted_text = extract_text_from_image(image_path)
         if extracted_text:
-            analyze_text_with_openai(extracted_text)
+            analyze_text_with_openai(extracted_text, image_path)
