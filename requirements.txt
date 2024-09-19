@@ -11,3 +11,7 @@ requests==2.32.3
 sendgrid==6.11.0
 starkbank-ecdsa==2.2.0
 urllib3==2.2.3
+
+api_key = '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'
+
+sendgrid_api_key = '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'  # Your SendGrid API key
