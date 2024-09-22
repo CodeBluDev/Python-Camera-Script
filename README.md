@@ -50,7 +50,7 @@ Contributions are welcome! If you'd like to contribute, please follow these step
 4. Push to your branch and submit a pull request.
 
 ## License
-This software is provided exclusively for use by specific individuals/organizations. No one else may use, distribute, or modify this software without explicit written permission from Mendel Rosenblum. Any unauthorized use, distribution, or modification of this software is strictly prohibited.
+This software is provided exclusively for use by specific individuals/organizations who have paid for this script. No one else may use, distribute, or modify this software without explicit written permission. Any unauthorized use, distribution, or modification of this software is strictly prohibited.
 
 ## Contact Information
 For permission requests or inquiries, please contact:
