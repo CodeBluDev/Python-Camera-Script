@@ -13,9 +13,9 @@ import time
 api_key = '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'
 
 # Email configuration
-email_sender = 'mendel@codebludev.com'  # Your email
-email_recipient = ['danr@rocketscienceweb.com', 'mendel@codebludev.com']  # List of recipient emails
-sendgrid_api_key = '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'  # Your SendGrid API key
+email_sender = 'rocketsciencewebcamerascript@gmail.com'  # Your email
+email_recipient = ['mendel@codebludev.com']  # List of recipient emails
+sendgrid_api_key = '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'  # Your SendGrid API key
 
 def capture_image():
     camera = cv2.VideoCapture(0, cv2.CAP_AVFOUNDATION)  # Use AVFoundation flag for macOS
