@@ -34,7 +34,7 @@ This project provides a Python script for capturing and analyzing images using a
 ## Usage
 To run the camera capture and analysis script, execute the following command while the virtual environment is activated:
 ```bash
-python capture_analyze.py
+python capture_and_analyze.py
 ```
 
 ## Features
