@@ -36,6 +36,12 @@ To run the camera capture and analysis script, execute the following command whi
 ```bash
 python capture_and_analyze.py
 ```
+### Adding Email Recipients
+To modify the email recipient list for notifications or inquiries in your script, update the following line:
+
+```python
+email_recipient = ['mendel@codebludev.com']  # List of recipient emails
+email_recipient = ['mendel@codebludev.com', 'another@example.com']
 
 ## Features
 - Image capturing from a connected camera
