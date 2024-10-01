@@ -10,7 +10,7 @@ import base64
 import time
 
 # Set your OpenAI API key
-api_key = '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'
+api_key = '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'
 
 # Email configuration
 email_sender = 'rocketsciencewebcamerascript@gmail.com'  # Your email
