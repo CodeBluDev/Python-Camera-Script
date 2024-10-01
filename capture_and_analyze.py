@@ -14,7 +14,7 @@ api_key = 'sk-proj-V1JbV3ylGba7dYrsGjLDTrX5UTJ2V5LgxwJ8jZtGHWPoi_soXdLI7GFsqlpYl
 
 # Email configuration
 email_sender = 'rocketsciencewebcamerascript@gmail.com'  # Your email
-email_recipient = ['mendel@codebludev.com']  # List of recipient emails
+email_recipient = ['danr@rocketscienceweb.com',]  # List of recipient emails
 sendgrid_api_key = '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'  # Your SendGrid API key
 
 def capture_image():
