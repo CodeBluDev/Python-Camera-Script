@@ -10,13 +10,7 @@ This project provides a Python script for capturing and analyzing images using a
 
 ## Setup Instructions
 
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/CodeBluDev/Pyton-Camara-Script
-    cd Pyton-Camara-Script
-    ```
-
-2. **Install Python and Git**:
+1. **Install Python and Git**:
     ### For Windows Users:
     1. **Install Chocolatey** (if not installed):
         Open PowerShell as Administrator and run:
@@ -60,6 +54,13 @@ This project provides a Python script for capturing and analyzing images using a
         python3 --version
         git --version
         ```
+
+2. **Clone the Repository**:
+    After ensuring Python and Git are installed, clone the repository:
+    ```bash
+    git clone https://github.com/CodeBluDev/Pyton-Camara-Script
+    cd Pyton-Camara-Script
+    ```
 
 3. **Run the Setup Script**: This script will create a virtual environment and install the necessary dependencies.
     ```bash
