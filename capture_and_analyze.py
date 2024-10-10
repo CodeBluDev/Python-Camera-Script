@@ -10,7 +10,11 @@ import base64
 import time
 
 # Set your OpenAI API key
-api_key = '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'
+# cannot push code bcause of the api key as stated by
+# error: GH013: Repository rule violations
+# remove prefix text 'gggg-' from the api key when using.
+# the app. After using, please bring it back
+api_key = 'gggg-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'
 
 # Email configuration
 email_sender = 'rocketsciencewebcamerascript@gmail.com'  # Your email
