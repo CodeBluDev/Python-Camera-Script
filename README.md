@@ -19,7 +19,7 @@ This project contains an executable file located in `/dist` folder.
     * You may need to change the file's permission first by running `chmod +x dist/capture_and_analyze`
     * Double click the file
   * ### For windows
-    * * Download from here: [dist/capture_and_analyze for Windows](/dist/capture_and_analyze)
+    * * Download from here: [dist/capture_and_analyze for Windows](/dist/capture_and_analyze.exe)
     * Double click the exe file. The file will run out of the box with no issues.
 
 ## For developers area
