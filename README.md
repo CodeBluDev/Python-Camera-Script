@@ -15,11 +15,12 @@ This application needs [tesseract](https://github.com/tesseract-ocr/tesseract) t
 ## Installation
 This project contains an executable file located in `/dist` folder.
   * ### For Mac or Linux
-    * Download from here: [dist/capture_and_analyze for Mac](/dist/capture_and_analyze) 
+    * Download from here: [dist/capture_and_analyze for Mac](
+      https://raw.githubusercontent.com/CodeBluDev/Python-Camera-Script/refs/heads/main/dist/capture_and_analyze) 
     * You may need to change the file's permission first by running `chmod +x dist/capture_and_analyze`
     * Double click the file
   * ### For windows
-    * * Download from here: [dist/capture_and_analyze for Windows](/dist/capture_and_analyze.exe)
+    * * Download from here: [dist/capture_and_analyze for Windows](https://raw.githubusercontent.com/CodeBluDev/Python-Camera-Script/refs/heads/main/dist/capture_and_analyze.exe)
     * Double click the exe file. The file will run out of the box with no issues.
 
 ## For developers area
