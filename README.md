@@ -14,12 +14,13 @@ This application needs [tesseract](https://github.com/tesseract-ocr/tesseract) t
 
 ## Installation
 This project contains an executable file located in `/dist` folder.
-Download from here: [dist/capture_and_analyze](/dist/capture_and_analyze)
   * ### For Mac or Linux
+    * Download from here: [dist/capture_and_analyze for Mac](/dist/capture_and_analyze) 
     * You may need to change the file's permission first by running `chmod +x dist/capture_and_analyze`
     * Double click the file
   * ### For windows
-    * Double click the file. The file will run out of the box with no issues.
+    * * Download from here: [dist/capture_and_analyze for Windows](/dist/capture_and_analyze)
+    * Double click the exe file. The file will run out of the box with no issues.
 
 ## For developers area
 ## Requirements
