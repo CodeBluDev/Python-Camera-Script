@@ -3,6 +3,25 @@
 ## Description
 This project provides a Python script for capturing and analyzing images using a camera. It leverages various libraries to facilitate image processing and data analysis.
 
+## Pre-installation setup
+This application needs [tesseract](https://github.com/tesseract-ocr/tesseract) to function correctly. 
+### For Mac
+* If you don't have Homebrew in your computer, install Homebrew by following the instructions here https://brew.sh/
+* run this command in your Terminal: `brew install tesseract`
+
+### For Windows
+* Install [tesseract for windows](https://github.com/UB-Mannheim/tesseract/releases/download/v5.4.0.20240606/tesseract-ocr-w64-setup-5.4.0.20240606.exe)
+
+## Installation
+This project contains an executable file located in `/dist` folder.
+Download from here: [dist/capture_and_analyze](/dist/capture_and_analyze)
+  * ### For Mac or Linux
+    * You may need to change the file's permission first by running `chmod +x dist/capture_and_analyze`
+    * Double click the file
+  * ### For windows
+    * Double click the file. The file will run out of the box with no issues.
+
+## For developers area
 ## Requirements
 - Python 3.x
 - Virtual environment tools (included in Python)
