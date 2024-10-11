@@ -22,7 +22,7 @@ email_recipient = ['danr@rocketscienceweb.com',]  # List of recipient emails
 sendgrid_api_key = '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'  # Your SendGrid API key
 
 def capture_image():
-    camera = cv2.VideoCapture(0, cv2.CAP_AVFOUNDATION)  # Use AVFoundation flag for macOS
+    camera = cv2.VideoCapture(1, cv2.CAP_AVFOUNDATION)  # Use AVFoundation flag for macOS
     if not camera.isOpened():
         print("Failed to open the camera.")
         return None
